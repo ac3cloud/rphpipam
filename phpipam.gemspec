@@ -6,8 +6,8 @@ require 'phpipam/version'
 Gem::Specification.new do |spec|
   spec.name          = "phpipam"
   spec.version       = Phpipam::VERSION
-  spec.authors       = ["saurabhbhatia"]
-  spec.email         = ["saurabh.a.bhatia@gmail.com"]
+  spec.authors       = ["Buleltproof Networks"]
+  spec.email         = ["saurabh.bhatia@bulletproof.net"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
