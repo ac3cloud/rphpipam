@@ -10,9 +10,9 @@ class Phpipam
   include Auth
   include Subnets
 
-  base_uri 'http://10.128.16.244/'
+  base_uri ENV['PHPIPAM_URL']
 
   def app_name
-    'bulletproof'
+    ENV['PHPIPAM_NAME']
   end
 end
