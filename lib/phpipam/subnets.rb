@@ -19,9 +19,14 @@ module Subnets
     self.class.get("/#{app_name}/subnets/#{subnet_cidr}/#{mask}/" , headers: {"token" => token})
   end
 
-  def create_subnet(cidr, mask, description, token)
-    get_cidr = IPAddr.new(cidr)
-    options = { "subnet" => get_cidr, "mask" => mask, "description" => description, headers: {"token" => token}}
+  def create_subnet(cidr, section_id, description, token)
+    get_cidr = IPAddress cidr
+    options = { query: {"subnet" => get_cidr.address, "mask" => get_cidr.prefix, "sectionId" => section_id, "description" => description}, headers: { "token" => token }}
     self.class.post("/#{app_name}/subnets/", options)
+  end
+
+  def delete_subnet(subnet_id, section_id,token)
+    options = { query: {"id" => subnet_id, "sectionId" => section_id}, headers: { "token" => token }}
+    self.class.delete("/#{app_name}/subnets/", options)
   end
 end

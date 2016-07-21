@@ -1,18 +1,26 @@
-#require_relative "phpipam/version"
-require "rubygems"
-require "httparty"
-require 'ipaddr'
+require_relative 'phpipam/version'
+require 'rubygems'
+require 'httparty'
+require 'ipaddress'
+require 'pry'
 require_relative 'phpipam/auth'
 require_relative 'phpipam/subnets'
+require_relative 'phpipam/sections'
+require_relative 'phpipam/vlans'
+require_relative 'phpipam/vrfs'
 
-class Phpipam
-  include HTTParty
-  include Auth
-  include Subnets
+module Phpipam
+  class Api
+    include HTTParty
+    debug_output $stdout
+    include Auth
+    include Subnets
+    include Sections
 
-  base_uri ENV['PHPIPAM_URL']
+    base_uri ENV['PHPIPAM_URL']
 
-  def app_name
-    ENV['PHPIPAM_NAME']
+    def app_name
+      ENV['API_APP_NAME']
+    end
   end
 end
