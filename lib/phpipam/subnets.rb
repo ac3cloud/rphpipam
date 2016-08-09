@@ -24,12 +24,13 @@ module Subnets
     options = {query: {subnet: get_cidr.address,
                        mask: get_cidr.prefix,
                        sectionId: section_id,
-                       description: => description}, headers: {'token' => token}}
+                       description: description}, headers: {'token' => token}}
     self.class.post("/#{app_name}/subnets/", options)
   end
 
   def delete_subnet(subnet_id, section_id, token)
-    options = {query: {'id' => subnet_id, 'sectionId' => section_id}, headers: {'token' => token}}
+    options = {query: {id: subnet_id,
+                       sectionId: section_id}, headers: {'token' => token}}
     self.class.delete("/#{app_name}/subnets/", options)
   end
 end

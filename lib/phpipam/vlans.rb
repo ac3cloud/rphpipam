@@ -8,12 +8,14 @@ module Vlans
   end
 
   def create_vlan(name, number, description, token)
-    options = {query: {'name' => name, 'number' => number, 'description' => description}, headers: {'token' => token}}
+    options = {query: {name: name,
+                       number: number,
+                       description: description}, headers: {'token' => token}}
     self.class.post("/#{app_name}/vlans/", options)
   end
 
   def delete_vlan(vlan_id, token)
-    options = {query: {'id' => vlan_id}, headers: {'token' => token}}
+    options = {query: {id: vlan_id}, headers: {'token' => token}}
     self.class.delete("/#{app_name}/vlan/", options)
   end
 end

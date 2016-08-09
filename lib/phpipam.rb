@@ -21,7 +21,7 @@ module Phpipam
     base_uri ENV['PHPIPAM_URL']
 
     def app_name
-      ['PHPIPAM_APP']
+      ENV['PHPIPAM_APP']
     end
   end
 end

@@ -16,7 +16,7 @@ module Sections
   end
 
   def delete_section(section_id, token)
-    options = {query: {'id' => section_id}, headers: {'token' => token}}
+    options = {query: {id: section_id}, headers: {'token' => token}}
     self.class.delete("/#{app_name}/sections/", options)
   end
 end
