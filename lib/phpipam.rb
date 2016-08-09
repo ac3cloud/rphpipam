@@ -12,15 +12,16 @@ require_relative 'phpipam/vrfs'
 module Phpipam
   class Api
     include HTTParty
-    debug_output $stdout
     include Auth
     include Subnets
     include Sections
+    include Vlans
+    include Vrfs
 
     base_uri ENV['PHPIPAM_URL']
 
     def app_name
-      ENV['API_APP_NAME']
+      ['PHPIPAM_APP']
     end
   end
 end
