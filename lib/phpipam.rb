@@ -17,8 +17,7 @@ module Phpipam
     include Sections
     include Vlans
     include Vrfs
-    debug_output $stdout
-
+    
     def initialize(app, url)
       @app = app
       @url = url
