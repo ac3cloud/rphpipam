@@ -17,7 +17,7 @@ module Phpipam
     include Sections
     include Vlans
     include Vrfs
-    
+
     def initialize(app, url)
       @app = app
       @url = url
