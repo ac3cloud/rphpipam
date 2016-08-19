@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Vlans
   def all_vlans(token)
     self.class.get("#{app_url}/vlans/", :headers => {'token' => token})

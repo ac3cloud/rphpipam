@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Vrfs
   def all_vrfs(token)
     self.class.get("#{app_url}/vrfs/", :headers => {'token' => token})

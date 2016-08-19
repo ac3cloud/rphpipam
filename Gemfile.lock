@@ -62,7 +62,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.11)
+  bundler
   ipaddress
   phpipam!
   pry

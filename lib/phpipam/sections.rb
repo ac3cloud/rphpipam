@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Sections
   def all_sections(token)
     self.class.get("#{app_url}/sections/", :headers => {'token' => token})

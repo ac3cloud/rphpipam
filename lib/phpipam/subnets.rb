@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Subnets
   def subnets(subnet_id, token)
     self.class.get("#{app_url}/subnets/#{subnet_id}/", :headers => {'token' => token})
