@@ -17,11 +17,15 @@ module Phpipam
     include Sections
     include Vlans
     include Vrfs
+    debug_output $stdout
 
-    base_uri ENV['PHPIPAM_URL']
+    def initialize(app, url)
+      @app = app
+      @url = url
+    end
 
-    def app_name
-      ENV['PHPIPAM_APP']
+    def app_url
+      @url + '/' + @app
     end
   end
 end

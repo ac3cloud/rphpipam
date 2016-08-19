@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     phpipam (0.1.0)
+      httparty
 
 GEM
   remote: https://rubygems.org/
@@ -62,7 +63,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.11)
-  httparty
   ipaddress
   phpipam!
   pry
