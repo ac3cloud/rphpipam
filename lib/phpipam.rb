@@ -1,8 +1,8 @@
+# frozen_string_literal: true
 require_relative 'phpipam/version'
 require 'rubygems'
 require 'httparty'
 require 'ipaddress'
-require 'pry'
 require_relative 'phpipam/auth'
 require_relative 'phpipam/subnets'
 require_relative 'phpipam/sections'
@@ -18,10 +18,13 @@ module Phpipam
     include Vlans
     include Vrfs
 
-    base_uri ENV['PHPIPAM_URL']
+    def initialize(app, url)
+      @app = app
+      @url = url
+    end
 
-    def app_name
-      ENV['PHPIPAM_APP']
+    def app_url
+      @url + '/' + @app
     end
   end
 end
