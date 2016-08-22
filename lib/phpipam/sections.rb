@@ -24,6 +24,11 @@ module Sections
     self.class.post("#{app_url}/sections/", options)
   end
 
+  def update_section(section_id, token)
+    options = {:query => {:id => section_id}, :headers => {'token' => token}}
+    self.class.patch("#{app_url}/sections/", options)
+  end
+
   def delete_section(section_id, token)
     options = {:query => {:id => section_id}, :headers => {'token' => token}}
     self.class.delete("#{app_url}/sections/", options)

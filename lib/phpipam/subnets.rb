@@ -29,6 +29,12 @@ module Subnets
     self.class.post("#{app_url}/subnets/", options)
   end
 
+  def update_subnet(subnet_id, description, token)
+    options = {:query => {:id => subnet_id,
+                          :description => description}, :headers => {'token' => token}}
+    self.class.patch("#{app_url}/subnets/", options)
+  end
+
   def delete_subnet(subnet_id, section_id, token)
     options = {:query => {:id => subnet_id,
                           :sectionId => section_id}, :headers => {'token' => token}}
