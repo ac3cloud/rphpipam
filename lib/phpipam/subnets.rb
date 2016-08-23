@@ -4,6 +4,10 @@ module Subnets
     self.class.get("#{app_url}/subnets/#{subnet_id}/", :headers => {'token' => token})
   end
 
+  def get_folder(subnet_id, token)
+    self.class.get("#{app_url}/folders/#{subnet_id}/", :headers => {'token' => token})
+  end
+
   def subnet_usage(subnet_id, token)
     self.class.get("#{app_url}/subnets/#{subnet_id}/usage/", :headers => {'token' => token})
   end
