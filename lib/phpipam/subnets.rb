@@ -16,6 +16,10 @@ module Subnets
     self.class.get("#{app_url}/subnets/#{subnet_id}/slaves/", :headers => {'token' => token})
   end
 
+  def subnet_recursive(subnet_id, token)
+    self.class.get("#{app_url}/subnets/#{subnet_id}/slaves_recursive/", :headers => {'token' => token})
+  end
+
   def subnet_addresses(subnet_id, token)
     self.class.get("#{app_url}/subnets/#{subnet_id}/addresses/", :headers => {'token' => token})
   end
