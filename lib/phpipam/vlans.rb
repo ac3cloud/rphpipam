@@ -8,6 +8,10 @@ module Vlans
     self.class.get("#{app_url}/vlans/#{vlan_id}/", :headers => {'token' => token})
   end
 
+  def vlan_search(vlan_id, token)
+    self.class.get("#{app_url}/vlans/#{vlan_id}/", :headers => {'token' => token})
+  end
+
   def create_vlan(name, number, description, token)
     options = {:query => {:name => name,
                           :number => number,
