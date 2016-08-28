@@ -12,7 +12,7 @@ RSpec.describe 'Authenticate and Authorize' do
   context '#POST authenticate' do
     before do
       @api_response = Array.new(24) { [*'a'..'z', *'A'..'Z', *'0'..'9'].sample }.join
-      json = {'code' => 200, 'success' => true, 'data' => { 'token' => @api_response }}.to_json
+      json = {'code' => 200, 'success' => true, 'data' => {'token' => @api_response}}.to_json
       WebMock.stub_request(:post, 'http://example.com/exampleapp/user/')
              .with(:headers => {'Accept' => '*/*',
                                 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
