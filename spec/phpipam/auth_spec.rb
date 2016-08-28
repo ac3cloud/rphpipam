@@ -13,7 +13,7 @@ RSpec.describe 'Authenticate and Authorize' do
     before do
       @api_response = Array.new(24) { [*'a'..'z', *'A'..'Z', *'0'..'9'].sample }.join
       json = {'code' => 200, 'success' => true, 'data' => { 'token' => @api_response }}.to_json
-      WebMock.stub_request(:post, 'http://example.com/bulletproof/user/')
+      WebMock.stub_request(:post, 'http://example.com/exampleapp/user/')
              .with(:headers => {'Accept' => '*/*',
                                 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
                                 'Authorization' => 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=',
@@ -24,7 +24,7 @@ RSpec.describe 'Authenticate and Authorize' do
     end
 
     it 'should authenticate and return a token' do
-      client = Phpipam::Api.new('bulletproof', 'http://example.com')
+      client = Phpipam::Api.new('exampleapp', 'http://example.com')
       auth = client.authenticate('username', 'password')
       client_response = JSON.parse(auth, :quirks_mode => true)
       token = client_response['data']['token']
